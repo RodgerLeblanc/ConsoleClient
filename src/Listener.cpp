@@ -22,6 +22,7 @@ Listener::Listener() :
 
 Listener::~Listener()
 {
+    m_server->deleteLater();
 }
 
 void Listener::listenOnPort(int _port)

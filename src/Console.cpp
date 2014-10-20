@@ -17,6 +17,7 @@ Console::Console() :
 
 Console::~Console()
 {
+    m_socket->deleteLater();
 }
 
 void Console::sendMessage(QString _data)
