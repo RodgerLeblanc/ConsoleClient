@@ -19,19 +19,19 @@ import bb.cascades 1.3
 Page {
     Container {
         Button {
-            text: "Test"
+            text: "Test1 : Send message directly"
             onClicked: {
                 _app.test();
             }
         }
         Button {
-            text: "Test2"
+            text: "Test2 : Send a console.log() message in QML"
             onClicked: {
                 console.log("This is a console.log() line from QML")
             }
         }
         Button {
-            text: "Test3"
+            text: "Test3 : Send a qDebug() message in C++"
             onClicked: {
                 _app.test3()
             }

@@ -71,7 +71,7 @@ void ApplicationUI::onSystemLanguageChanged()
 
 void ApplicationUI::test()
 {
-    console->sendMessage("ConsoleThis$$Test " + QTime::currentTime().toString("hh:mm:ss"));
+    console->sendMessage("ConsoleThis$$This is a message sent to ConsoleDebug directly, you don't need to send message directly, but in the eventuality that you want to do so, it's possible.");
 }
 
 void ApplicationUI::test3()
@@ -81,5 +81,5 @@ void ApplicationUI::test3()
 
 void ApplicationUI::onTimeout()
 {
-    qDebug() << "qDebug() fired every 10 secs, here's the time : " + QTime::currentTime().toString("hh:mm:ss");
+    qDebug() << "qDebug() message fired every 10 secs";
 }
