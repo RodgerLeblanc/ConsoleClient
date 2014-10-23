@@ -71,7 +71,9 @@ void ApplicationUI::onSystemLanguageChanged()
 
 void ApplicationUI::test()
 {
-    console->sendMessage("ConsoleThis$$This is a message sent to ConsoleDebug directly, you don't need to send message directly, but in the eventuality that you want to do so, it's possible.");
+    console->sendMessage("ConsoleThis$$Next line will be a crash line when trying to access a List<QString> outside of it's range.");
+    QList<QString> list;
+    QString crash = list[3];
 }
 
 void ApplicationUI::test3()
