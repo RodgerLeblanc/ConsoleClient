@@ -7,10 +7,12 @@ THIS APP DOESN'T NEED TO BE PART OF YOUR PROJECT, IT'S JUST AN EXAMPLE OF HOW TO
 
 LICENSE
 --------------
-This app doesn't have a license, but it doesn't mean it can be used freely. Here's what GitHub says about it :
-"Generally speaking, the absence of a license means that the default copyright laws apply. This means that you retain all rights to your source code and that nobody else may reproduce, distribute, or create derivative works from your work. This might not be what you intend."
+The MIT License (MIT)
 
-In fact, that's what I intend. You can look at the code and learn from it, but YOU ARE NOT ALLOWED TO COPY, REPRODUCE OR PUBLISH THIS CODE ON YOUR OWN NAME.
+Copyright (c) 2014 Roger Leblanc
 
-If you want to use this code inside one of your app, please contat me by email. My email address can be found here :
-https://github.com/RodgerLeblanc
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

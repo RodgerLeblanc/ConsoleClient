@@ -83,5 +83,5 @@ void ApplicationUI::test3()
 
 void ApplicationUI::onTimeout()
 {
-    qDebug() << "qDebug() message fired every 10 secs";
+//    qDebug() << "qDebug() message fired every 10 secs";
 }

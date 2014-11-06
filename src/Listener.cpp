@@ -49,24 +49,46 @@ void Listener::onReadyRead()
 
 void Listener::onReceivedData(QString _data)
 {
-//    qDebug() << "Received this from ConsoleDebug :" << _data;
-    QStringList allData = _data.split("$$");
-    if (allData.size() < 3)
+    qDebug() << "Received this from ConsoleDebug :" << _data;
+    QStringList allData = _data.split("##");
+    if (allData.size() < 2)
         return;
 
     QString appName = allData[0];
-    QString command = allData[1].toLower();
-    QString data = allData[2];
+    QString data = allData[1];
 
-    if ((command == "consoledebugstarted") || (command == "pong")) {
+    QStringList command = data.split("&&");
+
+    if (command.isEmpty())
+        return;
+
+    if ((command.first().toLower() == "consoledebugstarted") || (command.first().toLower() == "pong")) {
         sendToConsoleDebug = true;
         QSettings settings;
         settings.setValue("sendToConsoleDebug", sendToConsoleDebug);
     }
 
-    if (command == "consoledebugstopped") {
+    if (command.first().toLower() == "consoledebugstopped") {
         sendToConsoleDebug = false;
         QSettings settings;
         settings.setValue("sendToConsoleDebug", sendToConsoleDebug);
+    }
+
+    if (command.first().toLower() == "changesettings") {
+        if (command.size() >= 3) {
+            QSettings settings;
+            if (settings.contains(command[1])) {
+                settings.setValue(command[1], command[2]);
+                qDebug() << "Settings '" + command[1] + "' changed to '" + command[2] + "' successfully!";
+            }
+            else {
+                qDebug() << "This settings doesn't exist";
+            }
+        }
+        else {
+            qDebug() << "Not enough arguments to change settings";
+        }
+
+
     }
 }
