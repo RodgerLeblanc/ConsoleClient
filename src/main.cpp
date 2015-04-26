@@ -33,7 +33,7 @@ void myMessageOutput(QtMsgType type, const char* msg) {
     fflush(stdout);
 
     QSettings settings;
-    if (settings.value("sendToConsoleDebug", false).toBool()) {  // <---- Put this value to true somewhere in your app
+    if (settings.value("sendToConsoleDebug", true).toBool()) {  // <---- Put this value to false if you want to stop sending logs to ConsoleDebug
         Console* console = new Console();
         console->sendMessage("ConsoleThis$$" + QString(msg));
         console->deleteLater();
