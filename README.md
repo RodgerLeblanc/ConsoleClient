@@ -42,6 +42,7 @@ void myMessageOutput(QtMsgType type, const char* msg) {  // <-- ADD THIS
     if (settings.value("sendToConsoleDebug", false).toBool()) {  // <-- ADD THIS
         Console* console = new Console();  // <-- ADD THIS
         console->sendMessage("ConsoleThis$$" + QString(msg));  // <-- ADD THIS
+        console->deleteLater();  // <-- ADD THIS
     }  // <-- ADD THIS
 }  // <-- ADD THIS
 
