@@ -1,29 +1,31 @@
-/*
- * Console.cpp
- *
- *  Created on: 2014-10-16
- *      Author: Roger
- */
+/#include "Console.h"  // <-- ADD THIS
+#include <QSettings>  // <-- ADD THIS
+#include "applicationui.hpp"
+#include <bb/cascades/Application>
+#include <QLocale>
+#include <QTranslator>
+#include <Qt/qdeclarativedebug.h>
 
-#include "Console.h"
-#include <QStringList>
-#include <bb/ApplicationInfo>
+using namespace bb::cascades;
 
-Console::Console() :
-    QObject(),
-    m_socket(new QUdpSocket(this))
+void myMessageOutput(QtMsgType type, const char* msg) {  // <-- ADD THIS
+    Q_UNUSED(type);  // <-- ADD THIS
+    fprintf(stdout, "%s\n", msg);  // <-- ADD THIS
+    fflush(stdout);  // <-- ADD THIS
+
+    QSettings settings;  // <-- ADD THIS
+    if (settings.value("sendToConsoleDebug", true).toBool()) {  // <-- ADD THIS -- Put this value to false if you want to stop sending logs to ConsoleDebug
+        Console* console = new Console();  // <-- ADD THIS
+        console->sendMessage("ConsoleThis$$" + QString(msg));  // <-- ADD THIS
+        console->deleteLater();  // <-- ADD THIS
+    }  // <-- ADD THIS
+}  // <-- ADD THIS
+
+Q_DECL_EXPORT int main(int argc, char **argv)
 {
-}
+    Application app(argc, argv);
 
-Console::~Console()
-{
-    m_socket->deleteLater();
-}
+    qInstallMsgHandler(myMessageOutput);  // <-- ADD THIS
 
-void Console::sendMessage(QString _data)
-{
-    bb::ApplicationInfo appInfo;
-    QString message = appInfo.title() + "$$" + _data;
-
-    m_socket->writeDatagram(message.toStdString().c_str(),QHostAddress("127.0.0.1"), CLIENT_SENDING_PORT);
+...
 }
